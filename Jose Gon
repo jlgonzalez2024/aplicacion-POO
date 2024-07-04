@@ -1,0 +1,55 @@
+# Definición de la clase base
+class Animal:
+    def __init__(self, nombre):
+        self.__nombre = nombre  # Encapsulación del nombre
+    
+    def get_nombre(self):
+        return self.__nombre
+    
+    def comer(self):
+        print(f"{self.__nombre} está comiendo.")
+
+# Definición de la clase derivada
+class Perro(Animal):
+    def __init__(self, nombre, raza):
+        super().__init__(nombre)  # Llamada al constructor de la clase base
+        self.__raza = raza  # Encapsulación de la raza
+    
+    def get_raza(self):
+        return self.__raza
+    
+    # Polimorfismo: método sobrescrito
+    def comer(self):
+        print(f"{self.get_nombre()} está comiendo croquetas.")
+
+# Creación de instancias y demostración de funcionalidad
+if __name__ == "__main__":
+    # Creación de un objeto de la clase base
+    animal1 = Animal("Tigre")
+    print(f"Animal: {animal1.get_nombre()}")
+    animal1.comer()
+    
+    # Creación de un objeto de la clase derivada
+    perro1 = Perro("Fido", "Labrador")
+    print(f"Perro: {perro1.get_nombre()}, Raza: {perro1.get_raza()}")
+    perro1.comer()
+
+
+Explicación del Código:
+Clase Base Animal:
+
+Tiene un constructor __init__() que inicializa el nombre del animal (encapsulado).
+Método get_nombre() para obtener el nombre del animal.
+Método comer() que imprime un mensaje genérico de que el animal está comiendo.
+Clase Derivada Perro (Herencia):
+
+Hereda de la clase Animal.
+Tiene un constructor __init__() que inicializa el nombre del perro (llamando al constructor de la clase base) y la raza del perro (encapsulado).
+Método get_raza() para obtener la raza del perro.
+Polimorfismo: Método comer() está sobrescrito para que el perro específicamente coma croquetas (ejemplo de polimorfismo donde el comportamiento del método difiere del de la clase base).
+Uso del Programa:
+
+Se crean instancias de Animal y Perro.
+Se llama a métodos para demostrar la funcionalidad:
+Se imprime el nombre y se llama al método comer() para un animal genérico.
+Se imprime el nombre, la raza y se llama al método comer() para un perro específico, mostrando el polimorfismo.
